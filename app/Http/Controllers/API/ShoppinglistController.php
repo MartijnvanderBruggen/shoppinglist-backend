@@ -28,7 +28,7 @@ class ShoppinglistController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-          'name' => 'required',
+          'product' => 'required',
           'price' => 'required',
           'quantity' => 'required'
       ]);
