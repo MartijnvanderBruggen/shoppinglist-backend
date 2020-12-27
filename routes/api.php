@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Http\Controllers\ShoppinglistController;
+use App\Http\Controllers\API\ShoppinglistController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,5 +17,6 @@ use Http\Controllers\ShoppinglistController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::apiResource('shoppinglist', ShoppinglistController::class);
+Route::prefix('api')->group(function () {
+    Route::apiResource('shoppinglist', ShoppinglistController::class);
+});

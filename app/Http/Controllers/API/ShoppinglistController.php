@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Shoppinglist;
 
 class ShoppinglistController extends Controller
 {
@@ -26,7 +27,17 @@ class ShoppinglistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+          'name' => 'required',
+          'price' => 'required',
+          'quantity' => 'required'
+      ]);
+
+      Project::create($request->all());
+
+      return response()->json('Item added succesfully.', 200);
+
+  }
     }
 
     /**
