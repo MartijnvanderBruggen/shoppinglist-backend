@@ -13,7 +13,7 @@ class Shoppinglist extends Migration
      */
     public function up()
     {
-        Schema::create('shoppinglist', function(Blueprint $table) {
+        Schema::create('shoppinglists', function(Blueprint $table) {
           $table->increments('id');
           $table->double('price',8,2);
           $table->string('product');
