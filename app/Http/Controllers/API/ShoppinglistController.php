@@ -33,7 +33,7 @@ class ShoppinglistController extends Controller
           'quantity' => 'required'
       ]);
 
-      Project::create($request->all());
+      Shoppinglist::create($request->all());
 
       return response()->json('Item added succesfully.', 200);
 
