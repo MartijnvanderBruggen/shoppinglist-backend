@@ -37,7 +37,6 @@ class ShoppinglistController extends Controller
 
       return response()->json('Item added succesfully.', 200);
 
-  }
     }
 
     /**
