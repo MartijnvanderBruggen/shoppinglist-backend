@@ -16,4 +16,4 @@ use App\Http\Controllers\API\ShoppinglistController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('shoppinglist', [ShoppinglistController::class],'store');
+Route::post('/shoppinglist', [ShoppinglistController::class],'store');
