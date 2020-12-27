@@ -16,7 +16,7 @@ class Shoppinglist extends Migration
         Schema::create('shoppinglist', function(Blueprint $table) {
           $table->increments('id');
           $table->double('price',8,2);
-          $table->string('name');
+          $table->string('product');
           $table->integer('quantity');
           $table->timestamps();
         });
