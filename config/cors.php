@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://192.168.1.2:8080'],
+    'allowed_origins' => ['http://192.168.2.1:8080/shopping-list'],
 
     'allowed_origins_patterns' => ['*'],
 
