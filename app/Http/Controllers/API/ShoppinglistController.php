@@ -15,7 +15,7 @@ class ShoppinglistController extends Controller
      */
     public function index()
     {
-        $shoppinglists = Shoppinglist::get()->toJson(JSON_PRETTY_PRINT);
+        $shoppinglists = Shoppinglist::get()->toJson();
         return response()->json($shoppinglists, 200);
     }
 
@@ -49,7 +49,7 @@ class ShoppinglistController extends Controller
     {
         if(Shoppinglist::where('id', $id)->exists())
         {
-          $list = Shoppinglist::get('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+          $list = Shoppinglist::get('id', $id)->get()->toJson();
           return response()->json($list, 200);
         } else {
           return response()->json('not found!', 401);
