@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Shoppinglist;
+use Illuminate\Support\Facades\Log;
 
 class ShoppinglistController extends Controller
 {
@@ -28,8 +29,8 @@ class ShoppinglistController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-          'product' => 'required',
           'price' => 'required',
+          'product' => 'required',
           'quantity' => 'required'
       ]);
 
@@ -63,9 +64,16 @@ class ShoppinglistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Shoppinglist $shoppinglist)
     {
-        //
+        $request->validate([
+          'price' => 'required',
+          'product' => 'required',
+          'quantity' => 'required'
+        ]);
+        $item = Shoppinglist::find($request->id);
+        $item->update($request->only(['price','quantity','product']));
+        return response()->json('Item updated succesfully.', 200);
     }
 
     /**
@@ -76,6 +84,12 @@ class ShoppinglistController extends Controller
      */
     public function destroy($id)
     {
-        //
+      try {
+        $item = Shoppinglist::find($id);
+        $item->delete();
+        return response()->json('The item has been removed',200);
+      } catch (\Exception $e) {
+        return response()->json($e);
+      }
     }
 }

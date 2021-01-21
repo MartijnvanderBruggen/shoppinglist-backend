@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ShoppinglistController;
+use App\Http\Controllers\API\KnowledgebaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('shoppinglist', ShoppinglistController::class);
+Route::apiResource('knowledgebase', KnowledgebaseController::class);
